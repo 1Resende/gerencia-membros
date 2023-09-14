@@ -2,8 +2,8 @@
 
 namespace App\Controller\Pages;
 
-use \App\Utils\View;
-use \App\Model\Entity\Organization;
+use App\Utils\View;
+use App\Model\Entity\Organization;
 
 class Home extends Page
 {
@@ -18,8 +18,6 @@ class Home extends Page
         //View da home
         $content = View::render('pages/home',[
             'name' => $obOrganization->name,
-            'description' => $obOrganization->description,
-            'site' => $obOrganization->site
         ]);
 
         //Retorna a view da página

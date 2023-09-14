@@ -5,14 +5,14 @@ namespace App\Http;
 class Request
 {   
     /**
-     * Metódo HTTP da requisição
-     * @var string $httpMethod
+     * Método HTTP da requisição
+     * @var string
      */
     private $httpMethod;
 
     /**
      * URI da página
-     * @var string $uri
+     * @var string
      */
     private $uri;
 
@@ -24,7 +24,7 @@ class Request
 
     /**
      * Variáveis recebidas do POST da página($_POST)
-     * @var array $postVars
+     * @var array
      */
     private $postVars;
 
@@ -42,8 +42,8 @@ class Request
         $this->queryParams = $_GET ?? [];
         $this->postVars = $POST ?? [];
         $this->headers = getallheaders();
-        $this->httpMethod = $_SERVER['SERVER_METHOD'] ?? '';
-        $this->uri = $_SERVER['SERVER_URI'] ?? '';
+        $this->httpMethod = $_SERVER['REQUEST_METHOD'] ?? '';
+        $this->uri = $_SERVER['REQUEST_URI'] ?? '';
     }
 
     /**

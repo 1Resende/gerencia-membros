@@ -2,11 +2,21 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use \App\Controller\Pages\Home;
+use App\Http\Router;
+use App\Utils\View;
 
-$obResponse = new \App\Http\Response(200, 'Olá mundo');
+define('URL','http://localhost/php/gerencia-membros');
 
-$obResponse->sendResponse();
+//Define o valor padrão das variáveis
+View::init([
+    'URL'  => URL
+]);
 
-exit();
-echo Home::getHome();
+//Inicia o Router
+$obRouter = new Router(URL);
+
+//Inclui as rotas de páginas
+include __DIR__ . '/routes/pages.php';
+
+//Imprime o Response da rota
+$obRouter->run()->sendResponse();
