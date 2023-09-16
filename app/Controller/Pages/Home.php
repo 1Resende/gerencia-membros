@@ -14,7 +14,7 @@ class Home extends Page
 
     public static function getHome()
     {
-        $obOrganization = new Organization; // Utilizar Member
+        $obOrganization = new Organization; 
         //View da home
         $content = View::render('pages/home',[
             'name' => $obOrganization->name,

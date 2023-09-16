@@ -14,7 +14,7 @@ class About extends Page
 
     public static function getAbout()
     {
-        $obOrganization = new Organization; // Utilizar Member
+        $obOrganization = new Organization;
         //View da home
         $content = View::render('pages/about',[
             'name' => $obOrganization->name,

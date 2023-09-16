@@ -2,13 +2,13 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use App\Common\Enviroment;
 use App\Http\Router;
 use App\Utils\View;
+use App\Common\Enviroment;
 
 Enviroment::load(__DIR__);
 
-define('URL','http://localhost/php/gerencia-membros');
+define('URL', getenv('URL'));
 
 //Define o valor padrão das variáveis
 View::init([

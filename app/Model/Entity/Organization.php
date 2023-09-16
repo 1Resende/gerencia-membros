@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Model\Entity;
-//Utilizar como Member
 class Organization
 {
     public $id = 1;
