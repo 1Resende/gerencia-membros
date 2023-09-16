@@ -2,8 +2,11 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
+use App\Common\Enviroment;
 use App\Http\Router;
 use App\Utils\View;
+
+Enviroment::load(__DIR__);
 
 define('URL','http://localhost/php/gerencia-membros');
 
@@ -20,3 +23,4 @@ include __DIR__ . '/routes/pages.php';
 
 //Imprime o Response da rota
 $obRouter->run()->sendResponse();
+
