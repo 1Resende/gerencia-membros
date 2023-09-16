@@ -24,8 +24,5 @@ class Enviroment
         {
             putenv(trim($line));
         }
-        echo '<pre>';
-        print_r($lines);
-        echo '</pre>';
     }
 }
