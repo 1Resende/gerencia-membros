@@ -19,6 +19,6 @@ class Testimony extends Page
         ]);
 
         //Retorna a view da página
-        return parent::getPage('DEPOIMENTOS', $content);
+        return parent::getPage('Depoimentos', $content);
     }
 }
