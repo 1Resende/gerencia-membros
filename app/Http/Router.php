@@ -243,5 +243,15 @@ class Router
             return new Response($e->getCode(), $e->getMessage());
         }
     }
+
+    /**
+     * Método responsável por retornar a URL atual
+     * @return string
+     * 
+     */
+    public function getCurrentUrl()
+    {
+        return $this->url . $this->getUri();
+    }
     
 }
