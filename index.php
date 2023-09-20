@@ -13,4 +13,3 @@ include __DIR__ . '/routes/pages.php';
 
 //Imprime o Response da rota
 $obRouter->run()->sendResponse();
-
