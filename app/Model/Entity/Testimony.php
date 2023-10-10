@@ -34,6 +34,34 @@ class Testimony
     }
 
     /**
+     * Mensagem responsável por atualizar os dados do banco com a instância atual
+     * @return boolean
+     * 
+     */
+    public function atualizar()
+    {
+        //Atualiza o depoimento no banco
+        return (new Database('depoimentos'))->update('id = ' . $this->id, [
+            'nome'      => $this->nome,
+            'mensagem'  => $this->mensagem
+        ]);
+
+        //Sucesso
+        return true;
+    }
+
+    /**
+     * Método responsável por retornar um depoimento com base no seu ID
+     * @param integer $id
+     * @return Testimony
+     * 
+     */
+    public static function getTestimonyById($id)
+    {
+        return self::getTestimonies('id = ' . $id)->fetchObject(self::class); 
+    }
+
+    /**
      * Método responsável por retornar depoimentos
      * @param string $where
      * @param string $order
