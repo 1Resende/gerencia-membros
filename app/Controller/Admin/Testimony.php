@@ -60,7 +60,8 @@ class Testimony extends Page
         //Conteúdo da home
         $content = View::render('admin/modules/testimonies/index', [
             'items' => self::getTestimonyItems($request, $obPagination),
-            'pagination' => parent::getPagination($request,$obPagination)
+            'pagination' => parent::getPagination($request,$obPagination),
+            'status' => self::getStatus($request)            
         ]);
 
         //Retorna a página completa
@@ -132,6 +133,9 @@ class Testimony extends Page
             case 'updated':
                 return Alert::getSuccess('Depoimento atualizado com sucesso!');
                 break;
+            case 'deleted':
+                return Alert::getSuccess('Depoimento excluído com sucesso!');
+                break;
         }
     }
 
@@ -193,6 +197,59 @@ class Testimony extends Page
 
         //Redireciona o usuário 
         $request->getRouter()->redirect('/admin/testimonies/' . $obTestimony->id . '/edit?status=updated');
+    }
+
+    /**
+     * Método responsável por retornar o formulário de exclusão de um depoimento
+     * @param Request $request
+     * @return integer $id
+     * @return string
+     * 
+     */
+    public static function getDeleteTestimony($request, $id)
+    {
+        //Obtém o depoimento do banco de dados
+        $obTestimony = EntityTestimony::getTestimonyById($id);
+
+        //Valida instancia
+        if(!$obTestimony instanceof EntityTestimony)
+        {
+            $request->getRouter()->redirect('/admin/testimonies');
+        }
+
+        //Conteúdo do formulário
+        $content = View::render('admin/modules/testimonies/delete', [
+            'nome' => $obTestimony->nome,
+            'mensagem' => $obTestimony->mensagem
+        ]);
+
+        //Retorna a página completa
+        return parent::getPanel('Excluir depoimento - Admin', $content, 'testimonies');
+    }
+
+    /**
+     * Método responsável por excluir um depoimento
+     * @param Request $request
+     * @return integer $id
+     * @return string
+     * 
+     */
+    public static function setDeleteTestimony($request, $id)
+    {
+        //Obtém o depoimento do banco de dados
+        $obTestimony = EntityTestimony::getTestimonyById($id);
+
+        //Valida instancia
+        if(!$obTestimony instanceof EntityTestimony)
+        {
+            $request->getRouter()->redirect('/admin/testimonies');
+        }
+
+        //Exclui o depoimento
+        $obTestimony->excluir();
+
+        //Redireciona o usuário 
+        $request->getRouter()->redirect('/admin/testimonies?status=deleted');
     }
     
 }

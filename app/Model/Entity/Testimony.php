@@ -51,6 +51,20 @@ class Testimony
     }
 
     /**
+     * Mensagem responsável por excluir um depoimento do banco de dados
+     * @return boolean
+     * 
+     */
+    public function excluir()
+    {
+        //Exclui o depoimento no banco
+        return (new Database('depoimentos'))->delete('id = ' . $this->id);
+
+        //Sucesso
+        return true;
+    }
+
+    /**
      * Método responsável por retornar um depoimento com base no seu ID
      * @param integer $id
      * @return Testimony

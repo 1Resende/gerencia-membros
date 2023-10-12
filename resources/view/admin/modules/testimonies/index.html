@@ -9,6 +9,8 @@
 
 <hr>
 
+{{status}}
+
 <table class="table table-light table-striped">
     <thead>
         <tr>
