@@ -12,6 +12,8 @@ $obRouter = new Router(URL);
 include __DIR__ . '/routes/pages.php';
 //Inclui as rotas do painel admin
 include __DIR__ . '/routes/admin.php';
+//Inclui as rotas da API
+include __DIR__ . '/routes/api.php';
 
 //Imprime o Response da rota
 $obRouter->run()->sendResponse();
