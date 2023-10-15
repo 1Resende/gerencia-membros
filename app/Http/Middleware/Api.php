@@ -2,8 +2,6 @@
 
 namespace App\Http\Middleware;
 
-use Exception;
-
 class Api
 {
 
