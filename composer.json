@@ -1,8 +1,11 @@
 {
-    "name":"pibjp/gerenciamebros",
+    "name":"WDEV/mvc_crud",
     "autoload":{
         "psr-4":{
             "App\\":"app/"
         }
+    },
+    "require": {
+        "firebase/php-jwt": "^6.9"
     }
 }
