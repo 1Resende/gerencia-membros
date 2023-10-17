@@ -5,6 +5,10 @@ use App\Controller\Pages;
 
 //Rota Home
 $obRouter->get('/', [
+    'middlewares' => [
+        'api',
+        'cache'
+    ],
     function()
     {
         return new Response(200, Pages\Home::getHome());
@@ -13,6 +17,10 @@ $obRouter->get('/', [
 
 //Rota Sobre
 $obRouter->get('/sobre', [
+    'middlewares' => [
+        'api',
+        'cache'
+    ],
     function()
     {
         return new Response(200, Pages\About::getAbout());
@@ -21,6 +29,10 @@ $obRouter->get('/sobre', [
 
 //Rota Depoimentos
 $obRouter->get('/depoimentos', [
+    'middlewares' => [
+        'api',
+        'cache'
+    ],
     function($request)
     {
         return new Response(200, Pages\Testimony::getTestimonies($request));
