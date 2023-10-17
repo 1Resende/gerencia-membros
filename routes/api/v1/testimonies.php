@@ -6,7 +6,8 @@ use App\Controller\Api;
 //Rota de listagem de depoimentos
 $obRouter->get('/api/v1/testimonies', [
     'middlewares' => [
-        'api'
+        'api',
+        'cache'
     ],
     function($request)
     {
@@ -17,7 +18,8 @@ $obRouter->get('/api/v1/testimonies', [
 //Rota de consulta individual de depoimentos
 $obRouter->get('/api/v1/testimonies/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'cache'
     ],
     function($request, $id)
     {

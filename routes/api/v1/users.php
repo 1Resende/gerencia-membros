@@ -7,7 +7,8 @@ use App\Controller\Api;
 $obRouter->get('/api/v1/users', [
     'middlewares' => [
         'api',
-        'user-basic-auth'
+        'user-basic-auth',
+        'cache'
     ],
     function($request)
     {
@@ -31,7 +32,8 @@ $obRouter->get('/api/v1/users/me', [
 $obRouter->get('/api/v1/users/{id}', [
     'middlewares' => [
         'api',
-        'user-basic-auth'
+        'user-basic-auth',
+        'cache'
     ],
     function($request, $id)
     {

@@ -111,6 +111,9 @@ class Router
             $params['variables'] = $matches[1];
         }
 
+        //Remove barra no final da rota
+        $route = rtrim($route, '/');
+
         //Padrão de validação da url
         $patternRoute = '/^' . str_replace('/', '\/', $route) . '$/';
 
@@ -173,7 +176,7 @@ class Router
      * 
      * @return string
      */
-    private function getUri()
+    public function getUri()
     {
         //Uri da Request
         $uri = $this->request->getUri();
